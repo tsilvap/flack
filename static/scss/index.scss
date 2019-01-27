@@ -27,15 +27,6 @@ body {
   justify-content: center;
 }
 
-.select-display-name {
-  display: none;
-}
-
-.main-view {
-  display: none;
-  width: 100%;
-}
-
 .sidebar {
   background-color: $purple-900;
   color: $gray-400;
@@ -86,13 +77,13 @@ body {
   justify-content: center;
 }
 
-.create-channel {
+.text-button {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   font-weight: bold;
   padding: 0;
 }
 
-.create-channel-form {
+.hidden {
   display: none;
 }

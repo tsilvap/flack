@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template, request
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
@@ -19,6 +19,13 @@ def index():
 @app.route("/create_channel", methods=["POST"])
 def create_channel():
     """Create channel function."""
+    channel_name = request.form.get("channel-name")
+
+    if channel_name in channel_list:
+        return jsonify({"success": False})
+
+    channel_list.append(channel_name)
+    return jsonify({"success": True})
 
 
 if __name__ == "__main__":

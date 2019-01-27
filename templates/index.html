@@ -15,7 +15,7 @@
 <body>
   <div class="root">
 
-    <div class="col-12 col-sm-10 col-lg-6 col-xl-4 select-display-name">
+    <div class="col-12 col-sm-10 col-lg-6 col-xl-4 hidden" id="display-name-view">
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Welcome to Flack!</h5>
@@ -26,21 +26,21 @@
           </p>
           <form id="form">
             <div class="form-group">
-              <input type="text" class="form-control" id="display-name" placeholder="Display name">
+              <input type="text" class="form-control" id="display-name-input" autocomplete="off" autofocus placeholder="Display name">
             </div>
-            <button type="submit" class="btn btn-primary btn-custom btn-select-name">Join channels</button>
+            <button type="submit" class="btn btn-primary btn-custom">Join channels</button>
           </form>
         </div>
       </div>
     </div>
 
-    <div class="main-view h-100">
+    <div class="w-100 h-100 hidden" id="main-view">
       <div class="row no-gutters h-100">
 
         <div class="col-2">
           <div class="sidebar h-100 px-3 py-2">
             <h5>Flack</h5>
-            <p class="display-name">Yura</p>
+            <p id="display-name">Yura</p>
 
             <p class="channels">
               Channels <i class="fas fa-plus-square icon-right"></i>
@@ -54,12 +54,15 @@
         <div class="col">
           <div class="content h-100">
             <div class="no-channels h-100">
-              <p>Join a channel, or <button class="create-channel">create one</button> instead!</p>
-              <form class="create-channel-form">
+              <p>Join a channel, or <button class="text-button" id="create-channel">create one</button> instead!</p>
+              <form class="hidden" id="create-channel-form">
                 <div class="form-group">
                   <input type="text" class="form-control" id="channel-name" placeholder="Channel name">
+                  <small class="text-danger hidden" id="channel-name-taken">
+                    This channel name is already taken, please pick another one.
+                  </small>
                 </div>
-                <button class="btn btn-primary btn-custom">Create channel</button>
+                <button type="submit" class="btn btn-primary btn-custom">Create channel</button>
               </form>
             </div>
           </div>

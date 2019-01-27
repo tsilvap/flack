@@ -1,47 +1,73 @@
 document.addEventListener('DOMContentLoaded', () => {
   let displayName = localStorage.getItem('displayName');
 
-  // Show select display name prompt on first time visit
+  // Show and wire up display name prompt on first visit
   if (!displayName) {
-    const selectDisplayNameElem: HTMLDivElement = document.querySelector(
-      '.select-display-name'
+    const displayNameViewElem: HTMLDivElement = document.querySelector(
+      '#display-name-view'
     );
     const formElem: HTMLFormElement = document.querySelector('#form');
 
-    selectDisplayNameElem.style.display = 'block';
-
+    displayNameViewElem.style.display = 'block';
     formElem.onsubmit = () => {
-      const displayNameElem: HTMLInputElement = document.querySelector(
-        '#display-name'
+      const displayNameInputElem: HTMLInputElement = document.querySelector(
+        '#display-name-input'
       );
-      const displayName = displayNameElem.value;
 
+      displayName = displayNameInputElem.value;
       localStorage.setItem('displayName', displayName);
     };
   }
+  // Show and wire up main view if display name has been selected
+  else {
+    const mainViewElem: HTMLDivElement = document.querySelector('#main-view');
+    const displayNameElem: HTMLParagraphElement = document.querySelector(
+      '#display-name'
+    );
 
-  const mainViewElem: HTMLDivElement = document.querySelector('.main-view');
-  const displayNameElem: HTMLParagraphElement = document.querySelector(
-    '.display-name'
-  );
+    mainViewElem.style.display = 'block';
+    displayNameElem.innerHTML = `@${displayName}`;
+  }
+
   const createChannelElem: HTMLButtonElement = document.querySelector(
-    '.create-channel'
+    '#create-channel'
   );
   const createChannelFormElem: HTMLFormElement = document.querySelector(
-    '.create-channel-form'
+    '#create-channel-form'
   );
-
-  // Show the main view
-  mainViewElem.style.display = 'block';
-
-  // Get and show display name
-  displayName = localStorage.getItem('displayName');
-  displayNameElem.innerHTML = `@${displayName}`;
 
   // Wire up create channel button
   createChannelElem.onclick = () => {
     // Toggle create channel form visibility
     createChannelFormElem.style.display =
       createChannelFormElem.style.display === 'block' ? 'none' : 'block';
+  };
+
+  // Wire up create channel form
+  createChannelFormElem.onsubmit = () => {
+    const httpRequest = new XMLHttpRequest();
+    const channelNameElem: HTMLInputElement = document.querySelector(
+      '#channel-name'
+    );
+    const channelName = channelNameElem.value;
+    const data = new FormData();
+
+    httpRequest.onload = function() {
+      const data = JSON.parse(this.responseText);
+
+      // Display error message
+      if (!data.success) {
+        const channelNameTakenElem: HTMLElement = document.querySelector(
+          '#channel-name-taken'
+        );
+
+        channelNameTakenElem.style.display = 'block';
+      }
+    };
+    httpRequest.open('POST', '/create_channel');
+    data.append('channel-name', channelName);
+    httpRequest.send(data);
+
+    return false; // Prevent default behavior
   };
 });

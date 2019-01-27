@@ -7500,13 +7500,6 @@ body {
   height: 100%;
   justify-content: center; }
 
-.select-display-name {
-  display: none; }
-
-.main-view {
-  display: none;
-  width: 100%; }
-
 .sidebar {
   background-color: #4a148c;
   color: #bdbdbd; }
@@ -7543,13 +7536,13 @@ body {
   flex-direction: column;
   justify-content: center; }
 
-.create-channel {
+.text-button {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   font-weight: bold;
   padding: 0; }
 
-.create-channel-form {
+.hidden {
   display: none; }
 
 /*# sourceMappingURL=index.css.map */
