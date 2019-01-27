@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var selectDisplayNameElem = document.querySelector('.select-display-name');
     var displayName = localStorage.getItem('displayName');
+    // Show select display name prompt on first time visit
     if (!displayName) {
-        selectDisplayNameElem.style.display = 'block';
+        var selectDisplayNameElem = document.querySelector('.select-display-name');
         var formElem = document.querySelector('#form');
+        selectDisplayNameElem.style.display = 'block';
         formElem.onsubmit = function () {
             var displayNameElem = document.querySelector('#display-name');
             var displayName = displayNameElem.value;
@@ -11,8 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
     var mainViewElem = document.querySelector('.main-view');
-    mainViewElem.style.display = 'block';
-    displayName = localStorage.getItem('displayName');
     var displayNameElem = document.querySelector('.display-name');
+    // Show the main view
+    mainViewElem.style.display = 'block';
+    // Get and show display name
+    displayName = localStorage.getItem('displayName');
     displayNameElem.innerHTML = "@" + displayName;
 });
