@@ -1,8 +1,11 @@
 @import '../../node_modules/bootstrap/scss/_functions';
 @import '../../node_modules/bootstrap/scss/_variables';
 
+$gray-400: #bdbdbd;
+
 $purple-500: #9c27b0;
 $purple-800: #6a1b9a;
+$purple-900: #4a148c;
 
 $theme-colors: (
   'primary': $purple-800
@@ -23,9 +26,33 @@ body {
   justify-content: center;
 }
 
+.select-display-name {
+  display: none;
+}
+
 .btn-select-name {
   width: 100%;
   font-size: 0.8rem;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.main-view {
+  display: none;
+  width: 100%;
+}
+
+.sidebar {
+  background-color: $purple-900;
+  color: $gray-400;
+
+  h5 {
+    color: white;
+    margin: 0;
+  }
+
+  ul {
+    list-style-type: '# ';
+    padding-left: 1em;
+  }
 }

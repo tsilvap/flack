@@ -8,13 +8,15 @@
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
   <title>Flack</title>
 </head>
 
 <body>
   <div class="root">
 
-    <div class="col-12 col-sm-10 col-lg-6 col-xl-4">
+    <div class="col-12 col-sm-10 col-lg-6 col-xl-4 select-display-name">
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Welcome to Flack!</h5>
@@ -23,12 +25,28 @@
             Join channels on Flack.<br>
             All you need is to select a display name!
           </p>
-          <form action="">
+          <form id="form">
             <div class="form-group">
-              <input type="text" class="form-control" id="displayName" placeholder="Display name">
+              <input type="text" class="form-control" id="display-name" placeholder="Display name">
             </div>
             <button type="submit" class="btn btn-primary btn-select-name">Join channels</button>
           </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-view h-100">
+      <div class="row no-gutters h-100">
+        <div class="col-2 h-100">
+          <div class="sidebar h-100 px-3 py-2">
+            <h5>Flack</h5>
+            <p class="display-name">Yura</p>
+
+            <p>Channels</p>
+            <ul>
+              <li>general</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

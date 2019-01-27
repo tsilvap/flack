@@ -7500,10 +7500,27 @@ body {
   height: 100%;
   justify-content: center; }
 
+.select-display-name {
+  display: none; }
+
 .btn-select-name {
   width: 100%;
   font-size: 0.8rem;
   font-weight: bold;
   text-transform: uppercase; }
+
+.main-view {
+  display: none;
+  width: 100%; }
+
+.sidebar {
+  background-color: #4a148c;
+  color: #bdbdbd; }
+  .sidebar h5 {
+    color: white;
+    margin: 0; }
+  .sidebar ul {
+    list-style-type: '# ';
+    padding-left: 1em; }
 
 /*# sourceMappingURL=index.css.map */
