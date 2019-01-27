@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ socketio = SocketIO(app)
 @app.route("/")
 def index():
     """Index page, prompts for a display name in first visit."""
-    return "Hello, world!"
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
