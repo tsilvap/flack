@@ -1,0 +1,10 @@
+@import '_colors';
+
+@import '../../node_modules/bootstrap/scss/_functions';
+@import '../../node_modules/bootstrap/scss/_variables';
+
+$theme-colors: (
+  'primary': $purple-800
+);
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
