@@ -2,6 +2,7 @@
 @import '../../node_modules/bootstrap/scss/_variables';
 
 $gray-400: #bdbdbd;
+$gray-500: #9e9e9e;
 
 $purple-500: #9c27b0;
 $purple-800: #6a1b9a;
@@ -52,7 +53,28 @@ body {
   }
 
   ul {
-    list-style-type: '# ';
-    padding-left: 1em;
+    list-style-type: none;
+    padding: 0;
+
+    & > li::before {
+      content: '# ';
+      color: $gray-500;
+    }
   }
+
+  .channels {
+    position: relative;
+  }
+
+  .icon-right {
+    align-items: center;
+    display: inline-flex;
+    height: 100%;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.content {
+  background-color: white;
 }
