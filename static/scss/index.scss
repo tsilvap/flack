@@ -31,13 +31,6 @@ body {
   display: none;
 }
 
-.btn-select-name {
-  width: 100%;
-  font-size: 0.8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
 .main-view {
   display: none;
   width: 100%;
@@ -75,6 +68,31 @@ body {
   }
 }
 
+.btn-custom {
+  width: 100%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .content {
   background-color: white;
+}
+
+.no-channels {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.create-channel {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-weight: bold;
+  padding: 0;
+}
+
+.create-channel-form {
+  display: none;
 }

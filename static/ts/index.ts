@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const displayNameElem: HTMLParagraphElement = document.querySelector(
     '.display-name'
   );
+  const createChannelElem: HTMLButtonElement = document.querySelector(
+    '.create-channel'
+  );
+  const createChannelFormElem: HTMLFormElement = document.querySelector(
+    '.create-channel-form'
+  );
 
   // Show the main view
   mainViewElem.style.display = 'block';
@@ -31,4 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Get and show display name
   displayName = localStorage.getItem('displayName');
   displayNameElem.innerHTML = `@${displayName}`;
+
+  // Wire up create channel button
+  createChannelElem.onclick = () => {
+    // Toggle create channel form visibility
+    createChannelFormElem.style.display =
+      createChannelFormElem.style.display === 'block' ? 'none' : 'block';
+  };
 });

@@ -13,9 +13,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     var mainViewElem = document.querySelector('.main-view');
     var displayNameElem = document.querySelector('.display-name');
+    var createChannelElem = document.querySelector('.create-channel');
+    var createChannelFormElem = document.querySelector('.create-channel-form');
     // Show the main view
     mainViewElem.style.display = 'block';
     // Get and show display name
     displayName = localStorage.getItem('displayName');
     displayNameElem.innerHTML = "@" + displayName;
+    // Wire up create channel button
+    createChannelElem.onclick = function () {
+        // Toggle create channel form visibility
+        createChannelFormElem.style.display =
+            createChannelFormElem.style.display === 'block' ? 'none' : 'block';
+    };
 });

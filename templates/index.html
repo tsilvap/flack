@@ -28,7 +28,7 @@
             <div class="form-group">
               <input type="text" class="form-control" id="display-name" placeholder="Display name">
             </div>
-            <button type="submit" class="btn btn-primary btn-select-name">Join channels</button>
+            <button type="submit" class="btn btn-primary btn-custom btn-select-name">Join channels</button>
           </form>
         </div>
       </div>
@@ -53,7 +53,15 @@
 
         <div class="col">
           <div class="content h-100">
-
+            <div class="no-channels h-100">
+              <p>Join a channel, or <button class="create-channel">create one</button> instead!</p>
+              <form class="create-channel-form">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="channel-name" placeholder="Channel name">
+                </div>
+                <button class="btn btn-primary btn-custom">Create channel</button>
+              </form>
+            </div>
           </div>
         </div>
 
