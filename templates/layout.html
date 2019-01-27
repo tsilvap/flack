@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap_custom.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  {% block styles %}{% endblock %}
 
   <title>{% block title %}{% endblock %}</title>
 </head>

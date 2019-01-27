@@ -39,6 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 var channelNameTakenElem = document.querySelector('#channel-name-taken');
                 channelNameTakenElem.style.display = 'block';
             }
+            // Redirect to channel page
+            else {
+                window.location.href = "/channel/" + channelName;
+            }
         };
         httpRequest.open('POST', '/create_channel');
         data.append('channel-name', channelName);

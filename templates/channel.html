@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/channel.css') }}">
+{% endblock %}
+
+{% block title %}{{ channel_name }} | Flack{% endblock %}
+
+{% block content %}
+<div class="channel-view h-100">
+
+  <div class="row channel-header">
+    <div class="col-12">
+      <h5>#{{ channel_name }}</h5>
+    </div>
+  </div>
+
+  <div class="row channel-body">
+    <div class="col-12"></div>
+  </div>
+
+  <div class="row channel-footer">
+    <div class="col-12">
+      <form action="" method="post">
+        <div class="input-group channel-message-group">
+          <input type="text" class="channel-message-input" id="" autocomplete="off" autofocus placeholder="Message #{{ channel_name }}">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

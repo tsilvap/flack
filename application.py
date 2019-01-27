@@ -28,5 +28,15 @@ def create_channel():
     return jsonify({"success": True})
 
 
+@app.route("/channel/<string:channel_name>")
+def channel(channel_name):
+    """Channel page."""
+    # TODO: Check if channel exists and handle page appropriately
+    if channel_name not in channel_list:
+        pass
+
+    return render_template("channel.html", channel_name=channel_name)
+
+
 if __name__ == "__main__":
     socketio.run(app)
