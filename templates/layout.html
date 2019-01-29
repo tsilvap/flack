@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/bootstrap_custom.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='dist/fontawesome/css/all.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/index.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap_custom.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
   {% block styles %}{% endblock %}
 
   <title>{% block title %}{% endblock %}</title>
@@ -69,7 +69,7 @@
 
   </div>
 
-  <script src="{{ url_for('static', filename='dist/js/index.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
 </html>

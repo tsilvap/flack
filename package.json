@@ -9,7 +9,6 @@
   },
   "scripts": {
     "start": "python3 application.py",
-    "scss": "node-sass --watch --output-style compressed --source-map true -o static/dist/css static/scss",
-    "ts": "tsc --watch --pretty --outDir static/dist/js static/ts/*"
+    "scss": "node-sass --watch --output-style compressed --source-map true -o static/css static/scss"
   }
 }
