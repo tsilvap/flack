@@ -52,7 +52,7 @@
             <p class="channels">
               Channels <i class="fas fa-plus-square icon-right"></i>
             </p>
-            <ul>
+            <ul class="list-unstyled">
               {% for channel_name in channel_names %}
               <li>
                 <a href="{{ url_for('channel', channel_name=channel_name) }}">

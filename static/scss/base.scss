@@ -24,6 +24,10 @@ body {
   display: none;
 }
 
+.list-unstyled {
+  list-style-type: none;
+}
+
 .text-button {
   background-color: rgba(0, 0, 0, 0);
   border: none;
@@ -45,14 +49,9 @@ body {
     margin: 0;
   }
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-
-    & > li::before {
-      content: "# ";
-      color: $gray-500;
-    }
+  li::before {
+    content: "# ";
+    color: $gray-500;
   }
 
   .channels {
