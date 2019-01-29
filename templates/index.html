@@ -11,12 +11,19 @@
     </p>
     <form class="hidden" id="create-channel-form">
       <div class="form-group">
-        <input type="text" class="form-control" id="channel-name" placeholder="Channel name">
+        <input type="text" class="form-control" id="channel-name"
+          placeholder="Channel name">
         <small class="text-danger hidden" id="channel-name-taken">
           This channel name is already taken, please pick another one.
         </small>
       </div>
-      <button type="submit" class="btn btn-primary btn-custom">Create channel</button>
+      <button type="submit" class="btn btn-primary btn-custom">
+        Create channel
+      </button>
     </form>
   </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}
