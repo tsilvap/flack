@@ -1,10 +1,11 @@
 """The very best Slack clone written in Flask."""
+import json
 import os
 from collections import deque
 from datetime import datetime
 
 from flask import Flask, jsonify, redirect, render_template, request, url_for
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
@@ -46,7 +47,7 @@ class ChannelList(object):
         """Append a channel to the list."""
         self.list.append(channel)
 
-    def get_channel_by_name(self, channel_name):
+    def get(self, channel_name):
         """Return a channel given the channel name."""
         for channel in self.list:
             if channel.name == channel_name:
@@ -60,6 +61,10 @@ class ChannelList(object):
 
 
 channel_list = ChannelList()
+
+################################################################################
+#################################### ROUTES ####################################
+################################################################################
 
 
 @app.route('/')
@@ -94,6 +99,16 @@ def channel(channel_name):
     )
 
 
+@app.route('/messages/<string:channel_name>')
+def messages(channel_name):
+    """Return messages from `channel_name`."""
+    channel = channel_list.get(channel_name)
+
+    return jsonify([{'displayName': m.display_name,
+                     'messageText': m.message_text,
+                     'date': m.date} for m in channel.messages])
+
+
 @socketio.on('message')
 def handle_message(data):
     channel_name = data['channelName']
@@ -101,10 +116,13 @@ def handle_message(data):
     message_text = data['messageText']
 
     message = Message(display_name, message_text)
-    channel = channel_list.get_channel_by_name(channel_name)
+    channel = channel_list.get(channel_name)
     channel.add_message(message)
 
-    # TODO: Broadcast that message has been received
+    # Broadcast that message on channel `channel_name` has been received
+    emit('message received', {'channelName': channel_name}, broadcast=True)
+
+    print('emitted messages to channel', channel_name, '!')
 
 
 if __name__ == '__main__':
