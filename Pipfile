@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 eventlet = "*"
+autopep8 = "*"
 
 [packages]
 Flask = "*"

@@ -35,6 +35,11 @@ body {
   background-color: $purple-900;
   color: $gray-400;
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
   h5 {
     color: white;
     margin: 0;

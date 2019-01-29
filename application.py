@@ -14,7 +14,7 @@ channel_list = []
 @app.route("/")
 def index():
     """Index page, prompts for a display name in first visit."""
-    return render_template("index.html")
+    return render_template("index.html", channels=channel_list)
 
 
 @app.route("/create_channel", methods=["POST"])
@@ -36,7 +36,8 @@ def channel(channel_name):
     if channel_name not in channel_list:
         pass
 
-    return render_template("channel.html", channel_name=channel_name)
+    return render_template(
+        "channel.html", channels=channel_list, channel_name=channel_name)
 
 
 if __name__ == "__main__":
