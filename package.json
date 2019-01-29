@@ -3,6 +3,13 @@
     "bootstrap": "^4.2.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.6.3"
+    "@fortawesome/fontawesome-free": "^5.6.3",
+    "node-sass": "^4.11.0",
+    "typescript": "^3.2.4"
+  },
+  "scripts": {
+    "start": "python3 application.py",
+    "scss": "node-sass --watch --output-style compressed --source-map true -o static/dist/css static/scss",
+    "ts": "tsc --watch --pretty --outDir static/dist/js static/ts/*"
   }
 }

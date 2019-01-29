@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap_custom.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/bootstrap_custom.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dist/fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/index.css') }}">
   {% block styles %}{% endblock %}
 
   <title>{% block title %}{% endblock %}</title>
@@ -47,7 +47,7 @@
         <div class="col-2">
           <div class="sidebar h-100 px-3 py-2">
             <h5>Flack</h5>
-            <p id="display-name">Yura</p>
+            <p id="display-name"></p>
 
             <p class="channels">
               Channels <i class="fas fa-plus-square icon-right"></i>
@@ -69,7 +69,7 @@
 
   </div>
 
-  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  <script src="{{ url_for('static', filename='dist/js/index.js') }}"></script>
 </body>
 
 </html>
