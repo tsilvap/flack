@@ -7,7 +7,7 @@
 {% block title %}{{ channel_name }} | Flack{% endblock %}
 
 {% block content %}
-<div class="channel-view h-100">
+<div class="channel-view h-100" id="channel-view" data-channel-name="{{ channel_name }}">
 
   <div class="row channel-header">
     <div class="col-12">
@@ -21,7 +21,7 @@
 
   <div class="row channel-footer">
     <div class="col-12">
-      <form id="channel-message" data-channel-name="{{ channel_name }}">
+      <form id="channel-message">
         <div class="input-group channel-message-group">
           <input type="text" class="channel-message-input" id="message"
             autocomplete="off" autofocus placeholder="Message #{{ channel_name }}">
