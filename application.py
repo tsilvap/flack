@@ -122,8 +122,6 @@ def handle_message(data):
     # Broadcast that message on channel `channel_name` has been received
     emit('message received', {'channelName': channel_name}, broadcast=True)
 
-    print('emitted messages to channel', channel_name, '!')
-
 
 if __name__ == '__main__':
     socketio.run(app)

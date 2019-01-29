@@ -23,10 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const xhr = new XMLHttpRequest();
 
       xhr.onload = () => {
+<<<<<<< HEAD
         const messages = JSON.parse(xhr.responseText);
 
 
         // TODO: Display received messages.
+=======
+        // TODO: Handle received messages.
+        const messages = JSON.parse(xhr.responseText);
+
+        console.log(messages);
+>>>>>>> b806bd02bfc1fcb614cefccf04a55ecdc178df41
       };
       xhr.open('GET', `/messages/${channelName}`);
       xhr.send();
