@@ -2,8 +2,8 @@
 	"version": 3,
 	"file": "channel.css",
 	"sources": [
-		"../../scss/channel.scss",
-		"../../scss/_colors.scss"
+		"../scss/channel.scss",
+		"../scss/_colors.scss"
 	],
 	"names": [],
 	"mappings": "AAEA,AAAA,aAAa,AAAC,CACZ,OAAO,CAAE,IAAI,CACb,cAAc,CAAE,MAAM,CACtB,OAAO,CAAE,SAAS,CACnB,AAED,AAAA,eAAe,AAAC,CACd,aAAa,CAAE,GAAG,CAAC,KAAK,CCTf,OAAO,CDUjB,AAED,AAAA,aAAa,AAAC,CACZ,IAAI,CAAE,CAAC,CACR,AAED,AAAA,sBAAsB,AAAC,CACrB,OAAO,CAAE,IAAI,CACd,AAED,AAAA,sBAAsB,AAAC,CACrB,IAAI,CAAE,CAAC,CACR"
