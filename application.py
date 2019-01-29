@@ -1,5 +1,7 @@
 """The very best Slack clone written in Flask."""
 import os
+from collections import deque
+from datetime import datetime
 
 from flask import Flask, jsonify, redirect, render_template, request, url_for
 from flask_socketio import SocketIO
@@ -9,12 +11,29 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 socketio = SocketIO(app)
 
 
+class Message(object):
+    """A chat message."""
+
+    def __init__(self, display_name, message_text):
+        self.display_name = display_name
+        self.message_text = message_text
+        self.date = datetime.now()
+
+
 class Channel(object):
-    """A channel object."""
+    """A messaging channel.
+
+    A channel stores a maximum of 100 messages, and if new messages are
+    added the oldest ones will be deleted.
+    """
 
     def __init__(self, channel_name):
         self.name = channel_name
-        self.messages = []
+        self.messages = deque(maxlen=100)
+
+    def add_message(self, message):
+        """Add a message to channel."""
+        self.messages.append(message)
 
 
 class ChannelList(object):
@@ -26,6 +45,14 @@ class ChannelList(object):
     def append(self, channel):
         """Append a channel to the list."""
         self.list.append(channel)
+
+    def get_channel_by_name(self, channel_name):
+        """Return a channel given the channel name."""
+        for channel in self.list:
+            if channel.name == channel_name:
+                return channel
+
+        return None
 
     def names(self):
         """Return list of channel names."""
@@ -57,7 +84,6 @@ def create_channel():
 @app.route('/channel/<string:channel_name>')
 def channel(channel_name):
     """Channel page."""
-    # TODO: Check if channel exists and handle page appropriately
     if channel_name not in channel_list.names():
         return redirect(url_for('index'))
 
@@ -66,6 +92,19 @@ def channel(channel_name):
         channel_names=channel_list.names(),
         channel_name=channel_name
     )
+
+
+@socketio.on('message')
+def handle_message(data):
+    channel_name = data['channelName']
+    display_name = data['displayName']
+    message_text = data['messageText']
+
+    message = Message(display_name, message_text)
+    channel = channel_list.get_channel_by_name(channel_name)
+    channel.add_message(message)
+
+    # TODO: Broadcast that message has been received
 
 
 if __name__ == '__main__':

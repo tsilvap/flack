@@ -21,10 +21,10 @@
 
   <div class="row channel-footer">
     <div class="col-12">
-      <form action="" method="post">
+      <form id="channel-message" data-channel-name="{{ channel_name }}">
         <div class="input-group channel-message-group">
-          <input type="text" class="channel-message-input" autocomplete="off"
-            autofocus placeholder="Message #{{ channel_name }}">
+          <input type="text" class="channel-message-input" id="message"
+            autocomplete="off" autofocus placeholder="Message #{{ channel_name }}">
           <div class="input-group-append">
             <button class="btn btn-outline-primary">Send</button>
           </div>
@@ -34,4 +34,9 @@
   </div>
 
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='socket.io/socket.io.slim.js') }}"></script>
+<script src="{{ url_for('static', filename='js/channel.js') }}"></script>
 {% endblock %}
