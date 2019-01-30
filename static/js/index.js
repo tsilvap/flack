@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const lastVisited = localStorage.getItem('channelName');
+
+  if (lastVisited) {
+    // Go to last visited channel.
+    window.location.href = `/channel/${lastVisited}`;
+  }
+
   // Wire up create channel button.
   document.querySelector('#create-channel').onclick = () => {
     const form = document.querySelector('#create-channel-form');

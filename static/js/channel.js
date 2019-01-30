@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   );
   const { channelName } = document.querySelector('#channel-view').dataset;
 
+  // Remember channel.
+  localStorage.setItem('channelName', channelName);
+
   socket.on('connect', () => {
     // Emit message to channel.
     document.querySelector('#channel-message').onsubmit = function onSubmit() {

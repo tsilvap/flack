@@ -12,5 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show main view if display name is already set.
     document.querySelector('#main-view').style.display = 'block';
     document.querySelector('#display-name').innerHTML = `@${displayName}`;
+
+    // Navigate to home without being redirected to last visited channel.
+    document.querySelector('#home-link').onclick = () => {
+      localStorage.setItem('channelName', '');
+    };
   }
 });
