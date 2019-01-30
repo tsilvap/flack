@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap_custom.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
   {% block styles %}{% endblock %}
 
@@ -50,7 +49,7 @@
             <p id="display-name"></p>
 
             <p class="channels">
-              Channels <i class="fas fa-plus-square icon-right"></i>
+              Channels
             </p>
             <ul class="list-unstyled">
               {% for channel_name in channel_names %}
