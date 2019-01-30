@@ -53,7 +53,7 @@
             </p>
             <ul class="list-unstyled">
               {% for channel_name in channel_names %}
-              <li>
+              <li class="channel">
                 <a href="{{ url_for('channel', channel_name=channel_name) }}">
                   {{ channel_name }}
                 </a>

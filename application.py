@@ -18,7 +18,7 @@ class Message(object):
     def __init__(self, display_name, message_text):
         self.display_name = display_name
         self.message_text = message_text
-        self.date = datetime.now()
+        self.date = datetime.now().strftime('%I:%M %p')
 
 
 class Channel(object):
@@ -90,6 +90,7 @@ def create_channel():
 def channel(channel_name):
     """Channel page."""
     if channel_name not in channel_list.names():
+        # TODO: Fix this, causes bug with localStorage.
         return redirect(url_for('index'))
 
     return render_template(
