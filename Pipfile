@@ -13,6 +13,7 @@ Flask = "*"
 Flask-SocketIO = "*"
 python-dotenv = "*"
 eventlet = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
