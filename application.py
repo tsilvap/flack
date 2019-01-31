@@ -91,7 +91,9 @@ def channel(channel_name):
     """Channel page."""
     if channel_name not in channel_list.names():
         # TODO: Fix this, causes bug with localStorage.
-        return redirect(url_for('index'))
+        return render_template(
+            'index.html', channel_names=channel_list.names(),
+            channel_not_exists=True, channel_name=channel_name)
 
     return render_template(
         'channel.html',

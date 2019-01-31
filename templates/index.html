@@ -8,6 +8,14 @@
 
 {% block content %}
 <div class="no-channels h-100">
+  {% if channel_not_exists %}
+  <p>
+    This channel does not exist. Would you like to
+    <button class="text-button" id="create-inexistent-channel"
+      data-channel-name="{{ channel_name }}">create it</button>
+    instead?
+  </p>
+  {% else %}
   <p>
     Join a channel, or
     <button class="text-button" id="create-channel">create one</button>
@@ -25,6 +33,7 @@
       Create channel
     </button>
   </form>
+  {% endif %}
 </div>
 {% endblock %}
 
