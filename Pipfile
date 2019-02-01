@@ -12,10 +12,6 @@ Flask = "*"
 Flask-SocketIO = "*"
 python-dotenv = "*"
 eventlet = "*"
-<<<<<<< HEAD
-gunicorn = "*"
-=======
->>>>>>> Use eventlet WSGI server
 
 [requires]
 python_version = "3.7"
