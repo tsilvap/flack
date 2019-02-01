@@ -39,8 +39,6 @@ function displayMessages(msgs) {
     // Append message element to the list of messages.
     msgsElem.appendChild(messageElem);
   });
-
-  console.log('Messages displayed.');
 }
 
 /**
@@ -51,11 +49,7 @@ function displayMessages(msgs) {
 function fetchAndDisplayMessages(channelName) {
   const xhr = new XMLHttpRequest();
 
-  console.log('Fetching messages...');
-
   xhr.onload = () => {
-    console.log('Messages fetched, proceeding to display them.');
-
     // Get messages.
     const msgs = JSON.parse(xhr.responseText);
     displayMessages(msgs);
@@ -70,8 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
   );
   const { channelName } = document.querySelector('#channel-view').dataset;
 
-  console.log(`DOM Content Loaded. socket = ${socket}`);
-
   // Remember channel.
   localStorage.setItem('channelName', channelName);
 
@@ -79,8 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchAndDisplayMessages(channelName);
 
   socket.on('connect', () => {
-    console.log('Socket connected.');
-
     // Emit message to channel.
     document.querySelector('#channel-message').onsubmit = function onSubmit() {
       const displayName = localStorage.getItem('displayName');
@@ -89,19 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
       socket.emit('message', { channelName, displayName, messageText });
       document.querySelector('#message').value = ''; // Clear input.
 
-      console.log(`Message emmited, body = ${messageText}`);
-
       return false; // Prevent default.
     };
   });
 
   socket.on('message received', (data) => {
-    console.log('Received ping back from server.');
-
     // If message is from this channel, update messages view.
     if (channelName === data.channelName) {
-      console.log('Data is from this channel, proceeding to fetch messages.');
-
       fetchAndDisplayMessages(channelName);
     }
   });
