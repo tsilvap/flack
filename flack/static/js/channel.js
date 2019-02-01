@@ -14,12 +14,15 @@ function displayMessages(msgs) {
   }
 
   // (Re)render all messages in the DOM.
-  msgs.forEach((msg) => {
+  msgs.reverse().forEach((msg) => {
     const messageElem = document.createElement('li');
     const firstDiv = document.createElement('div');
     const secondDiv = document.createElement('div');
     const authorElem = document.createElement('span');
     const dateElem = document.createElement('small');
+
+    // Only display message if body is non-empty.
+    if (!msg.messageText) return;
 
     // Set up first div.
     authorElem.className = 'author';
@@ -39,6 +42,11 @@ function displayMessages(msgs) {
     // Append message element to the list of messages.
     msgsElem.appendChild(messageElem);
   });
+
+  // Scroll down to the last message.
+  document.querySelector('#channel-body').scrollTo(
+    0, 1000000,
+  );
 }
 
 /**
