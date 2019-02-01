@@ -1,1 +1,1 @@
-web: python3 serve.py --log-file -
+web: python serve.py --log-file -
