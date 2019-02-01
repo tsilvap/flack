@@ -22,7 +22,7 @@ function displayMessages(msgs) {
     const dateElem = document.createElement('small');
 
     // Only display message if body is non-empty.
-    if (!msg.messageText) return;
+    if (!msg.messageText.trim()) return;
 
     // Set up first div.
     authorElem.className = 'author';
