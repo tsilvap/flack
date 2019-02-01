@@ -10,7 +10,7 @@
     "node-sass": "^4.11.0"
   },
   "scripts": {
-    "start": "python3 application.py",
+    "start": "python3 serve.py",
     "scss": "node-sass --watch --output-style compressed --source-map true -o static/css static/scss"
   }
 }
