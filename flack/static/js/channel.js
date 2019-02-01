@@ -66,7 +66,7 @@ function fetchAndDisplayMessages(channelName) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const socket = io.connect(
-    `http://${document.domain}:${window.location.port}`,
+    `https://${document.domain}:${window.location.port}`,
   );
   const { channelName } = document.querySelector('#channel-view').dataset;
 
