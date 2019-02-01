@@ -11,6 +11,6 @@
   },
   "scripts": {
     "start": "python3 serve.py",
-    "scss": "node-sass --watch --output-style compressed --source-map true -o static/css static/scss"
+    "scss": "node-sass --watch --output-style compressed --source-map true -o flack/static/css flack/static/scss"
   }
 }

@@ -43,7 +43,7 @@
     <div class="w-100 h-100 hidden" id="main-view">
       <div class="row no-gutters h-100">
 
-        <div class="col-2">
+        <div class="col-2 h-100">
           <div class="sidebar h-100 px-3 py-2">
             <h5><a href="{{ url_for('index') }}" id="home-link">Flack</a></h5>
             <p id="display-name"></p>
@@ -63,7 +63,7 @@
           </div>
         </div>
 
-        <div class="col">
+        <div class="col h-100">
           <div class="content h-100">
             {% block content %}{% endblock %}
           </div>
